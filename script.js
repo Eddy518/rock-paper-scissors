@@ -1,5 +1,6 @@
 //array called ComputerChoice that will store  rock,paper,scissors
 let computerChoice = ["rock", "paper", "scissors"];
+//store scores
 let computerScore = 0;
 let playerScore = 0;
 function getComputerChoice() {
