@@ -1,3 +1,4 @@
+//array called ComputerChoice that will store  rock,paper,scissors
 let computerChoice = ["rock", "paper", "scissors"];
 let computerScore = 0;
 let playerScore = 0;
@@ -26,17 +27,17 @@ function game(){
 function playRound(playerSelection, computerSelection) {
   
   if (computerSelection === playerSelection) {
-      return 'Draw'
+    return `The game is a draw you: ${playerSelection} COM: ${computerSelection}`;
   } else if (
     (computerSelection === "rock" && playerSelection === "paper") ||
     (computerSelection === "paper" && playerSelection === "scissors") ||
     (computerSelection === "scissors" && playerSelection === "rock")
   ) {
       playerScore++;
-      return 'win'
+      return `You won! COM: ${computerSelection} vs you: ${playerSelection}`;
   } else {
      computerScore++;
-     return 'loss';
+     return `You lose! COM: ${computerSelection} vs you: ${playerSelection}`;
   }   
 } 
 
