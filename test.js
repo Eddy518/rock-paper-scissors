@@ -12,12 +12,17 @@ function game(){
     let playerSelection = prompt("Enter Rock, Paper or Scissors: ").toLowerCase();
     computerSelection = getComputerChoice();
     let result = playRound(playerSelection,computerSelection);
+    console.log(result);
   }
-  
+  if (playerScore > computerScore) {
+    console.log("You won in 5 rounds");
+  } else if(playerScore<computerScore){
+    console.log("You lost in 5 rounds");
+  }
+  else{
+    console.log("Overall is a draw");
+  }
 }
-
-
-
 function playRound(playerSelection, computerSelection) {
   
   if (computerSelection === playerSelection) {
@@ -34,4 +39,7 @@ function playRound(playerSelection, computerSelection) {
      return 'loss';
   }   
 } 
+
 game();
+console.log(playerScore);
+console.log(computerScore);
