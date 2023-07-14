@@ -5,7 +5,6 @@ function getComputerChoice() {
   return computerChoice[Math.floor(Math.random() * computerChoice.length)];
 }
 //getComputerChoice();
-
 //function to play single round of Rock Paper Scissors
 function playRound(playerSelection, computerSelection) {
   if (computerSelection == playerSelection) {
