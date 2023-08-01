@@ -27,9 +27,12 @@ console.log(playerScore);
 console.log(computerScore);
 
 //-----------DOM----------------//
+let playerSelection = "";
 const btn = document.querySelectorAll(".btn");
-btn.forEach((button) => {
-  button.addEventListener("click", () => {
-    alert("Hello");
-  });
-});
+const getSelected = (e) => {
+  playerSelection = e.target.id;
+  console.log(playerSelection);
+};
+for (const button of btn) {
+  button.addEventListener("click", getSelected);
+}
