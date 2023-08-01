@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+}
+.selection {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+.btn {
+  background-color: blueviolet;
+  border: none;
+  padding: 14px;
+  border-radius: 5px;
+  color: rgb(169, 194, 9);
+  font-weight: bold;
+  font-size: 20px;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: cadetblue;
+}
