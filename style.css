@@ -8,6 +8,10 @@ body {
   gap: 2em;
   justify-content: center;
 }
+.player-score,
+.computer-score {
+  display: flex;
+}
 .selection {
   display: flex;
   justify-content: space-between;
