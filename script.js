@@ -4,9 +4,6 @@ function getComputerChoice() {
   return computerChoice[Math.floor(Math.random() * computerChoice.length)];
 }
 
-let computerSelection = getComputerChoice();
-let playerSelection;
-
 function playRound(playerSelection, computerSelection) {
   if (computerSelection === playerSelection) {
   } else if (
@@ -21,9 +18,11 @@ function playRound(playerSelection, computerSelection) {
 const selections = document.querySelectorAll(".selection button");
 
 function playGame(e) {
-  let userSelection;
-  userSelection = e.target.id;
-  console.log(userSelection);
+  let computerSelection = getComputerChoice();
+  let playerSelection;
+  playerSelection = e.target.id;
+  console.log(`playerSelection is ${playerSelection}`);
+  console.log(`computerSelection is ${computerSelection}`);
 }
 
 selections.forEach((selection) =>
