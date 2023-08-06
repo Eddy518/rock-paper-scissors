@@ -24,20 +24,24 @@ function playRound(playerSelection, computerSelection) {
     computerScoreDisplay.textContent = computerScore;
     console.log(`computerScore after: ${computerScore}`);
   }
-}
-function getWinner() {
   if (playerScore === 5 || computerScore === 5) {
-    console.log(`playerSelection is ${playerSelection}`);
-    console.log(`computerSelection is ${computerSelection}`);
     if (playerScore > computerScore) {
-      runningScoreDisplay.textContent = "You win the game!!";
-    } else {
-      runningScoreDisplay.textContent = "You lose the game!!";
+      runningScoreDisplay.textContent = "You won 🥳";
+      runningScoreDisplay.setAttribute(
+        "style",
+        "backgroundColor:green;color:#e0a709;"
+      );
     }
-  } else {
-    playRound(playerSelection, computerSelection);
+    if (playerScore < computerScore) {
+      runningScoreDisplay.textContent = "You lost 🙁";
+      runningScoreDisplay.setAttribute(
+        "style",
+        "backgroundColor:red;color:#59751b;"
+      );
+    }
   }
 }
+
 const selections = document.querySelectorAll(".selection button");
 const playerScoreDisplay = document.querySelector("#player-result");
 const computerScoreDisplay = document.querySelector("#computer-result");
@@ -53,7 +57,7 @@ function playGame(e) {
   //console.log(`playerSelection is ${playerSelection}`);
   //console.log(`computerSelection is ${computerSelection}`);
 
-  getWinner();
+  playRound(playerSelection, computerSelection);
 }
 
 selections.forEach((selection) =>
