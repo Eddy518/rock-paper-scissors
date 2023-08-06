@@ -1,12 +1,11 @@
 let computerChoice = ["rock", "paper", "scissors"];
-let userScore = 0;
-let computerScore = 0;
 
 function getComputerChoice() {
   return computerChoice[Math.floor(Math.random() * computerChoice.length)];
 }
 
-const computerSelection = getComputerChoice();
+let computerSelection = getComputerChoice();
+let playerSelection;
 
 function playRound(playerSelection, computerSelection) {
   if (computerSelection === playerSelection) {
@@ -19,15 +18,14 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-//-----------DOM----------------//
-let playerSelection = "";
-const btn = document.querySelectorAll(".btn");
-const getSelected = (e) => {
-  playerSelection = e.target.id;
-  console.log(playerSelection);
-  console.log(computerSelection);
-  playRound();
-};
-for (const button of btn) {
-  button.addEventListener("click", getSelected);
+const selections = document.querySelectorAll(".selection button");
+
+function playGame(e) {
+  let userSelection;
+  userSelection = e.target.id;
+  console.log(userSelection);
 }
+
+selections.forEach((selection) =>
+  selection.addEventListener("click", playGame)
+);
