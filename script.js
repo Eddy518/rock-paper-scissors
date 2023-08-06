@@ -29,14 +29,14 @@ function playRound(playerSelection, computerSelection) {
       runningScoreDisplay.textContent = "You won 🥳";
       runningScoreDisplay.setAttribute(
         "style",
-        "backgroundColor:green;color:#e0a709;"
+        "background:green;color:#e0a709;padding:10px;"
       );
     }
     if (playerScore < computerScore) {
       runningScoreDisplay.textContent = "You lost 🙁";
       runningScoreDisplay.setAttribute(
         "style",
-        "backgroundColor:red;color:#59751b;"
+        "background:red;color:#59751b;padding:10px;"
       );
     }
   }
