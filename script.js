@@ -25,7 +25,19 @@ function playRound(playerSelection, computerSelection) {
     console.log(`computerScore after: ${computerScore}`);
   }
 }
-
+function getWinner() {
+  if (playerScore === 5 || computerScore === 5) {
+    console.log(`playerSelection is ${playerSelection}`);
+    console.log(`computerSelection is ${computerSelection}`);
+    if (playerScore > computerScore) {
+      runningScoreDisplay.textContent = "You win the game!!";
+    } else {
+      runningScoreDisplay.textContent = "You lose the game!!";
+    }
+  } else {
+    playRound(playerSelection, computerSelection);
+  }
+}
 const selections = document.querySelectorAll(".selection button");
 const playerScoreDisplay = document.querySelector("#player-result");
 const computerScoreDisplay = document.querySelector("#computer-result");
@@ -38,10 +50,10 @@ let computerSelection;
 function playGame(e) {
   computerSelection = getComputerChoice();
   playerSelection = e.target.id;
-  console.log(`playerSelection is ${playerSelection}`);
-  console.log(`computerSelection is ${computerSelection}`);
+  //console.log(`playerSelection is ${playerSelection}`);
+  //console.log(`computerSelection is ${computerSelection}`);
 
-  playRound(playerSelection, computerSelection);
+  getWinner();
 }
 
 selections.forEach((selection) =>
