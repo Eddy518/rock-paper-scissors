@@ -11,17 +11,24 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "scissors") ||
     (computerSelection === "scissors" && playerSelection === "rock")
   ) {
-    console.log(`player is ${playerSelection}`);
-    console.log(`computer is ${computerSelection}`);
+    console.log(`playerScore original: ${playerScore}`);
+    playerScore++;
+    playerScoreDisplay.textContent = playerScore;
+    console.log(`playerScore after: ${playerScore}`);
   } else {
-    console.log(`player is ${playerSelection}`);
-    console.log(`computer is ${computerSelection}`);
+    console.log(`computerScore original: ${computerScore}`);
+    computerScore++;
+    computerScoreDisplay.textContent = computerScore;
+    console.log(`computerScore after: ${computerScore}`);
   }
 }
 
 const selections = document.querySelectorAll(".selection button");
-let playerScore = document.querySelector("#player-result");
-let computerScore = document.querySelector("#computer-result");
+const playerScoreDisplay = document.querySelector("#player-result");
+const computerScoreDisplay = document.querySelector("#computer-result");
+let playerScore = 0;
+let computerScore = 0;
+
 let playerSelection;
 let computerSelection;
 function playGame(e) {
