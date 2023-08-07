@@ -1,4 +1,14 @@
 let computerChoice = ["rock", "paper", "scissors"];
+const selections = document.querySelectorAll(".selection button");
+const playerScoreDisplay = document.querySelector("#player-result");
+const computerScoreDisplay = document.querySelector("#computer-result");
+const runningScoreDisplay = document.querySelector("#running-score");
+const containerElement = document.querySelector(".container");
+let playerScore = 0;
+let computerScore = 0;
+
+let playerSelection;
+let computerSelection;
 
 function getComputerChoice() {
   return computerChoice[Math.floor(Math.random() * computerChoice.length)];
@@ -24,6 +34,10 @@ function playRound(playerSelection, computerSelection) {
     computerScoreDisplay.textContent = computerScore;
     console.log(`computerScore after: ${computerScore}`);
   }
+  checkResult();
+}
+
+function checkResult() {
   if (playerScore === 5 || computerScore === 5) {
     if (playerScore > computerScore) {
       runningScoreDisplay.textContent = "You won 🥳";
@@ -39,22 +53,38 @@ function playRound(playerSelection, computerSelection) {
         "background:red;color:#59751b;padding:10px;"
       );
     }
-    //remove event listener after playerScore===5 || computerScore===5
-    selections.forEach((selection) => {
-      selection.removeEventListener("click", playGame);
-    });
+    resetGame();
   }
 }
+function resetGame() {
+  //remove event listener after playerScore===5 || computerScore===5
+  selections.forEach((selection) => {
+    selection.removeEventListener("click", playGame);
+  });
 
-const selections = document.querySelectorAll(".selection button");
-const playerScoreDisplay = document.querySelector("#player-result");
-const computerScoreDisplay = document.querySelector("#computer-result");
-const runningScoreDisplay = document.querySelector("#running-score");
-let playerScore = 0;
-let computerScore = 0;
+  const startGameButton = document.createElement("button");
+  startGameButton.textContent = "New game";
+  containerElement.appendChild(startGameButton);
 
-let playerSelection;
-let computerSelection;
+  startGameButton.addEventListener("click", () => {
+    playerScore = 0;
+    computerScore = 0;
+    playerSelection = "";
+    computerSelection = "";
+    playerScoreDisplay.textContent = 0;
+    computerScoreDisplay.textContent = 0;
+    runningScoreDisplay.textContent = "";
+    runningScoreDisplay.removeAttribute("style");
+    containerElement.removeChild(startGameButton);
+    console.log("you clicked start game");
+    console.log(playerScore);
+    console.log(computerScore);
+    console.log(playerSelection);
+    console.log(computerSelection);
+    beginGame();
+  });
+}
+
 function playGame(e) {
   computerSelection = getComputerChoice();
   playerSelection = e.target.id;
@@ -63,7 +93,9 @@ function playGame(e) {
 
   playRound(playerSelection, computerSelection);
 }
-
-selections.forEach((selection) =>
-  selection.addEventListener("click", playGame)
-);
+function beginGame() {
+  selections.forEach((selection) =>
+    selection.addEventListener("click", playGame)
+  );
+}
+beginGame();
