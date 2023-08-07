@@ -3,14 +3,24 @@ body {
   justify-content: center;
   align-items: center;
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
 .text {
   display: flex;
   gap: 2em;
   justify-content: center;
 }
+#running-score {
+  width: 100%;
+}
 .player-score,
 .computer-score {
   display: flex;
+  height: 30px;
 }
 .selection {
   display: flex;
@@ -29,4 +39,20 @@ body {
 .btn:hover {
   cursor: pointer;
   background-color: cadetblue;
+}
+/* TO BE ADDED BY JAVASCRIPT */
+.start-game-button {
+  background-color: rgb(62, 129, 33);
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  color: rgb(204, 214, 190);
+  font-weight: bold;
+  font-size: 17px;
+  width: 30%;
+  margin-left: -46px;
+}
+.start-game-button:hover {
+  cursor: pointer;
+  background-color: rgba(62, 129, 33, 0.9);
 }

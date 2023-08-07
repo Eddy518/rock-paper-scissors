@@ -64,6 +64,7 @@ function resetGame() {
 
   const startGameButton = document.createElement("button");
   startGameButton.textContent = "New game";
+  startGameButton.classList.add("start-game-button");
   containerElement.appendChild(startGameButton);
 
   startGameButton.addEventListener("click", () => {
@@ -75,6 +76,7 @@ function resetGame() {
     computerScoreDisplay.textContent = 0;
     runningScoreDisplay.textContent = "";
     runningScoreDisplay.removeAttribute("style");
+    startGameButton.classList.remove("start-game-button");
     containerElement.removeChild(startGameButton);
     console.log("you clicked start game");
     console.log(playerScore);
