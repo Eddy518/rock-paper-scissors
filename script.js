@@ -39,6 +39,10 @@ function playRound(playerSelection, computerSelection) {
         "background:red;color:#59751b;padding:10px;"
       );
     }
+    //remove event listener after playerScore===5 || computerScore===5
+    selections.forEach((selection) => {
+      selection.removeEventListener("click", playGame);
+    });
   }
 }
 
